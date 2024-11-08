@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Mail\ThankYouMail;
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+
+class UserController extends Controller
+{
+    // Display the registration form
+    public function showForm()
+    {
+        return view('register');
+    }
+    // Store form data in the database
+    public function store(Request $request)
+    {
+        // Validate incoming request data
+        $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'mobile' => 'nullable|string|max:15',
+            'password' => 'required|string|min:8|confirmed',
+        ]);
+
+        // Create a new user
+        User::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'password' => Hash::make($request->password), // Hash the password
+        ]);
+
+        Mail::to($request->email)->send(new ThankYouMail($request));
+
+            return redirect()->back()->with('success', 'Registration successful! A confirmation email has been sent.');
+
+    }
+}
