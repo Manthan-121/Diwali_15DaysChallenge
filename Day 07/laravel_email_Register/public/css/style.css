@@ -1,0 +1,110 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f3f7f9;
+}
+
+/* Form container styling */
+.form-container {
+    background: #ffffff;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.form-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Title */
+.form-container h1 {
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Form labels */
+label {
+    display: block;
+    /* margin: 1rem 0 0.25rem; */
+    color: #555;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Form input fields */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #555;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #2802ff;
+    outline: none;
+}
+
+/* Error message styling */
+.error-message {
+    color: #ff4b4b;
+    font-size: 14px;
+    margin-top: -0.75rem;
+    margin-bottom: 0.75rem;
+    text-align: left;
+}
+
+/* Success message styling */
+.success-message {
+    color: #4CAF50;
+    font-size: 16px;
+    margin-bottom: 1rem;
+}
+
+/* Submit button styling */
+button[type="submit"] {
+    background: linear-gradient(135deg, #754fdd, #480bf0);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+button[type="submit"]:hover {
+    background: linear-gradient(135deg, #6b39f5bb, #4003e9);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
