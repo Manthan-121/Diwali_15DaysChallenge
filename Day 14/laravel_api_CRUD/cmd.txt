@@ -1,0 +1,11 @@
+php artisan make:migration create_products_table /"OR"/ php artisan make:model Product -mcr
+
+php artisan migrate
+
+php artisan install:api // create a route file
+
+
+
+// 0seeder command
+php artisan make:seeder ProductSeeder
+php artisan db:seed
